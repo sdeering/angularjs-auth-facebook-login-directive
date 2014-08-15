@@ -18,25 +18,28 @@ angular.module("app").directive("facebookLoginButton", function(AuthService) {
        */
       $scope.socialAuth = function(network) {
 
-          // Fixes dual-screen position (Most browsers/Firefox)
+          //fixes dual-screen position (Most browsers/Firefox)
           var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
           var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
           dualWidth = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
           dualHeight = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
 
+          // calculate position of popup window and set parameters.
           var width = 500,
               height = 500,
               left = ((dualWidth / 2) - (width / 2)) + dualScreenLeft,
               top = ((dualHeight / 2) - (height / 2)) + dualScreenTop,
               title = "Authenticate",
-              url = 'http://localhost/api/auth/' + network;
+              url = window.location.origin+'/api/auth/' + network;
 
+          //open the popup window.
           window.$windowScope = $scope;
           $scope.socialAuthWindow = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
 
+          //check the status of the popup window.
           $scope.checkAuthStatus();
 
-          // Puts focus on the newWindow
+          //puts focus on the newWindow
           if (window.focus) {
               $scope.socialAuthWindow.focus();
           }
