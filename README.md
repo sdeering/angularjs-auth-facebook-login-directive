@@ -3,7 +3,7 @@
  * Inserts a login with facebook button.
  * Adds functionality for social network authentication via a popup window.
 
-![AngularJS Auth Facebook Login Directive"](facebook-login.png "AngularJS Auth Facebook Login Directive")
+![AngularJS Auth Facebook Login Directive"](https://raw.githubusercontent.com/sdeering/angularjs-auth-facebook-login-directive/master/facebook-login.png "AngularJS Auth Facebook Login Directive")
 
 ## Notes:
  * Template uses Bootstrap 3 markup with Font Awesome.
